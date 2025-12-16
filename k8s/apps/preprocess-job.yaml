@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: preprocess-job
+  namespace: storage
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: preprocess
+          image: preprocess:local
+          env:
+            - name: S3_ENDPOINT
+              value: "http://minio.storage.svc.cluster.local:9000"
+            - name: S3_ACCESS_KEY
+              value: "minioadmin"
+            - name: S3_SECRET_KEY
+              value: "minioadmin"
+            - name: RAW_BUCKET
+              value: "raw-data"
+            - name: RAW_KEY
+              value: "input.csv"
+            - name: OUT_BUCKET
+              value: "processed-data"
+            - name: OUT_KEY
+              value: "clean.csv"
