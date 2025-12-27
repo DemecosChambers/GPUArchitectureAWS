@@ -1,0 +1,9 @@
+2025-12-17 18:48:10,315 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters']
+2025-12-17 18:48:12,245 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters', 'describe']
+2025-12-17 18:48:18,444 DEBUG    root            Running [gcloud.container.clusters.describe] with arguments: [--format: "value(status)", --zone: "us-central1-a", NAME: "ai-gke"]
+2025-12-17 18:48:18,452 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): container.googleapis.com:443
+2025-12-17 18:48:18,803 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/clusters/ai-gke?alt=json HTTP/11" 200 None
+2025-12-17 18:48:18,813 DEBUG    root            Chosen display Format:default value(status)
+2025-12-17 18:48:18,813 INFO     root            Display format: "default value(status)"
+2025-12-17 18:48:19,462 INFO     ___FILE_ONLY___ RUNNING
+

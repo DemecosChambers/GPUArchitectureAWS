@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gpu-job-template
+  namespace: gpu-jobs
+  labels:
+    app: gpu-job
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 120
+  template:
+    metadata:
+      labels:
+        app: gpu-job
+    spec:
+      restartPolicy: Never
+      tolerations:
+        - key: "nvidia.com/gpu"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
+      containers:
+        - name: cuda-check
+          image: nvidia/cuda:12.2.0-base-ubuntu22.04
+          command: ["bash","-lc"]
+          args:
+            - |
+              echo "Node: $(uname -n)"
+              echo "Time: $(date -Is)"
+              nvidia-smi
+              echo "GPU job completed."
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "200m"
+              memory: "256Mi"

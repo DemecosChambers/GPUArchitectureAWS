@@ -19,3 +19,30 @@ repositories:
   password: ""
   url: https://charts.bitnami.com/bitnami
   username: ""
+- caFile: ""
+  certFile: ""
+  insecure_skip_tls_verify: false
+  keyFile: ""
+  name: eks
+  pass_credentials_all: false
+  password: ""
+  url: https://aws.github.io/eks-charts
+  username: ""
+- caFile: ""
+  certFile: ""
+  insecure_skip_tls_verify: false
+  keyFile: ""
+  name: karpenter
+  pass_credentials_all: false
+  password: ""
+  url: https://charts.karpenter.sh
+  username: ""
+- caFile: ""
+  certFile: ""
+  insecure_skip_tls_verify: false
+  keyFile: ""
+  name: nvidia
+  pass_credentials_all: false
+  password: ""
+  url: https://nvidia.github.io/k8s-device-plugin
+  username: ""

@@ -1,0 +1,110 @@
+2025-12-16 19:02:46,489 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-12-16 19:02:46,878 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-12-16 19:02:46,880 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "compute/region", VALUE: "us-central1"]
+2025-12-16 19:02:47,805 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-12-16 19:02:48,124 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/nth-baton-205216/regions/us-central1?alt=json HTTP/11" 403 None
+2025-12-16 19:03:03,970 INFO     ___FILE_ONLY___ Enabling service [compute.googleapis.com] on project [nth-baton-205216]...
+
+2025-12-16 19:03:04,331 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:05,321 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/nth-baton-205216/services/compute.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-12-16 19:03:05,329 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:05,636 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:08,009 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:08,235 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:11,422 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:11,725 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:14,404 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:14,826 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:17,566 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:18,876 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:22,055 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:22,356 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:26,153 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:26,532 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:31,076 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:31,355 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:35,891 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:36,205 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:40,998 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:41,242 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:46,102 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:46,359 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:52,140 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:52,397 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:03:58,191 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:03:58,532 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:04:05,720 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:04:05,950 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:04:13,813 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:04:14,065 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:04:22,003 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-12-16 19:04:22,253 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54?alt=json HTTP/11" 200 None
+2025-12-16 19:04:22,270 INFO     ___FILE_ONLY___ Operation "operations/acf.p2-617449521683-db4809db-ed53-42f9-965a-d8dd33d05a54" finished successfully.
+
+2025-12-16 19:04:22,469 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/nth-baton-205216/regions/us-central1?alt=json HTTP/11" 403 None
+2025-12-16 19:04:22,473 DEBUG    root            (gcloud.config.set) Retry
+This may be due to network connectivity issues. Please check your network settings, and the status of the service you are trying to reach.
+Traceback (most recent call last):
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/single_request_helper.py", line 69, in MakeSingleRequest
+    response = getattr(service, method)(request=request_body)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/compute/v1/compute_v1_client.py", line 17282, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 744, in _RunMethod
+    http_response = http_wrapper.MakeRequest(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 348, in MakeRequest
+    return _MakeRequestNoRetry(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 406, in _MakeRequestNoRetry
+    check_response_func(response)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 239, in _CheckResponse
+    _CheckForApiEnablementError(response_as_error)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 198, in _CheckForApiEnablementError
+    PromptToEnableApi(*enablement_info)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 179, in PromptToEnableApi
+    raise apitools_exceptions.RequestError('Retry')
+apitools.base.py.exceptions.RequestError: Retry
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/surface/config/set.py", line 137, in Run
+    showed_warning = config_validators.WarnIfSettingNonExistentRegionZone(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/command_lib/config/config_validators.py", line 72, in WarnIfSettingNonExistentRegionZone
+    client.MakeRequests(zone_request if zonal else region_request, errors)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/client_adapter.py", line 128, in MakeRequests
+    objects = list(
+              ^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/request_helper.py", line 321, in MakeRequests
+    responses, new_errors = single_request_helper.MakeSingleRequest(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/single_request_helper.py", line 81, in MakeSingleRequest
+    response = getattr(service, method)(request=request_body)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/compute/v1/compute_v1_client.py", line 17282, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 744, in _RunMethod
+    http_response = http_wrapper.MakeRequest(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 348, in MakeRequest
+    return _MakeRequestNoRetry(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 406, in _MakeRequestNoRetry
+    check_response_func(response)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 239, in _CheckResponse
+    _CheckForApiEnablementError(response_as_error)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 196, in _CheckForApiEnablementError
+    raise apitools_exceptions.RequestError('Retry')
+apitools.base.py.exceptions.RequestError: Retry
+2025-12-16 19:04:23,393 ERROR    root            (gcloud.config.set) Retry
+This may be due to network connectivity issues. Please check your network settings, and the status of the service you are trying to reach.

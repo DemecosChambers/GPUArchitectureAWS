@@ -1,0 +1,8 @@
+[core]
+account = demecoschambers@gmail.com
+project = nth-baton-205216
+
+[compute]
+zone = us-central1-a
+region = us-central1
+

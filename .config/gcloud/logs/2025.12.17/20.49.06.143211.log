@@ -1,0 +1,72 @@
+2025-12-17 20:49:06,169 DEBUG    root            Loaded Command Group: ['gcloud', 'container']
+2025-12-17 20:49:06,171 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters']
+2025-12-17 20:49:06,176 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters', 'delete']
+2025-12-17 20:49:06,313 DEBUG    root            Running [gcloud.container.clusters.delete] with arguments: [NAME:1: "['ai-gke']"]
+2025-12-17 20:49:06,314 DEBUG    root            Chosen display Format:list[title="The following clusters will be deleted."]
+2025-12-17 20:49:09,484 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): container.googleapis.com:443
+2025-12-17 20:49:10,095 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "DELETE /v1/projects/nth-baton-205216/locations/us-central1-a/clusters/ai-gke?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:10,099 INFO     ___FILE_ONLY___ Deleting cluster ai-gke...
+2025-12-17 20:49:10,356 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:15,461 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:20,559 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:25,654 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:30,756 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:35,902 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:41,014 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:46,112 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:51,452 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:49:56,555 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:01,650 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:06,773 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:11,873 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:17,002 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:22,116 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:27,208 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:32,323 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:37,423 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:42,522 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:47,615 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:52,715 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:50:57,886 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:02,981 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:08,074 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:13,177 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:18,279 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:23,427 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:29,115 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:34,215 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:39,325 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:44,421 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:49,520 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:54,600 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:51:59,697 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:04,795 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:09,877 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:14,964 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:20,056 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:25,142 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:30,237 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:35,330 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:40,415 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:45,523 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:50,639 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:52:55,970 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:53:01,101 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:53:06,206 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180?alt=json HTTP/1.1" 200 None
+2025-12-17 20:53:06,209 INFO     root            Operation <Operation
+ clusterConditions: []
+ endTime: '2025-12-18T01:53:05.664423396Z'
+ name: 'operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180'
+ nodepoolConditions: []
+ operationType: OperationTypeValueValuesEnum(DELETE_CLUSTER, 2)
+ selfLink: 'https://container.googleapis.com/v1/projects/617449521683/zones/us-central1-a/operations/operation-1766022550021-c12d23fe-cd09-4cb8-a443-5f90202dc180'
+ startTime: '2025-12-18T01:49:10.021203064Z'
+ status: StatusValueValuesEnum(DONE, 3)
+ targetLink: 'https://container.googleapis.com/v1/projects/617449521683/zones/us-central1-a/clusters/ai-gke'
+ zone: 'us-central1-a'> finished after 2.36e+02 seconds
+2025-12-17 20:53:06,253 DEBUG    root            Purged cluster config from /home/dchambers/.config/gcloud/kubernetes/nth-baton-205216_us-central1-a_ai-gke
+2025-12-17 20:53:06,254 INFO     ___FILE_ONLY___ Deleted [https://container.googleapis.com/v1/projects/nth-baton-205216/zones/us-central1-a/clusters/ai-gke].
+
+2025-12-17 20:53:06,254 DEBUG    root            Chosen display Format:none
+2025-12-17 20:53:06,255 INFO     root            Display format: "none"
+2025-12-17 20:53:06,255 DEBUG    root            SDK update checks are disabled.

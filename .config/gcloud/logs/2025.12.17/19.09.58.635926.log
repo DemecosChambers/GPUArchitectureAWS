@@ -1,0 +1,56 @@
+2025-12-17 19:09:58,724 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'node_pools']
+2025-12-17 19:09:58,800 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'node-pools', 'create']
+2025-12-17 19:09:59,944 DEBUG    root            Running [gcloud.container.node-pools.create] with arguments: [--accelerator: "OrderedDict({'type': 'nvidia-tesla-t4', 'count': 1})", --cluster: "ai-gke", --enable-autoscaling: "True", --machine-type: "n1-standard-4", --max-nodes: "1", --min-nodes: "0", --node-labels: "OrderedDict({'gpu': 'true'})", --num-nodes: "0", --spot: "True", --zone: "us-central1-a", NAME: "gpu-spot"]
+2025-12-17 19:09:59,945 INFO     ___FILE_ONLY___ Note: Machines with GPUs have certain limitations which may affect your workflow. Learn more at https://cloud.google.com/kubernetes-engine/docs/how-to/gpus
+
+2025-12-17 19:09:59,945 INFO     ___FILE_ONLY___ Note: Starting in GKE 1.30.1-gke.115600, if you don't specify a driver version, GKE installs the default GPU driver for your node's GKE version.
+
+2025-12-17 19:09:59,959 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): container.googleapis.com:443
+2025-12-17 19:10:01,414 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "POST /v1/projects/nth-baton-205216/locations/us-central1-a/clusters/ai-gke/nodePools?alt=json HTTP/11" 409 None
+2025-12-17 19:10:01,417 DEBUG    root            (gcloud.container.node-pools.create) ResponseError: code=409, message=Already exists: projects/nth-baton-205216/zones/us-central1-a/clusters/ai-gke/nodePools/gpu-spot.
+Traceback (most recent call last):
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/surface/container/node_pools/create.py", line 370, in Run
+    operation_ref = adapter.CreateNodePool(pool_ref, options)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/api_lib/container/api_adapter.py", line 6264, in CreateNodePool
+    operation = self.client.projects_locations_clusters_nodePools.Create(req)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/container/v1/container_v1_client.py", line 149, in Create
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpConflictError: HttpError accessing <https://container.googleapis.com/v1/projects/nth-baton-205216/locations/us-central1-a/clusters/ai-gke/nodePools?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Thu, 18 Dec 2025 00:10:01 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 409}>, content <{
+  "error": {
+    "code": 409,
+    "message": "Already exists: projects/nth-baton-205216/zones/us-central1-a/clusters/ai-gke/nodePools/gpu-spot.",
+    "status": "ALREADY_EXISTS",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.RequestInfo",
+        "requestId": "0x129ea15a1bcb9f31"
+      }
+    ]
+  }
+}
+>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/surface/container/node_pools/create.py", line 383, in Run
+    raise exceptions.HttpException(error, util.HTTP_ERROR_FORMAT)
+googlecloudsdk.calliope.exceptions.HttpException: ResponseError: code=409, message=Already exists: projects/nth-baton-205216/zones/us-central1-a/clusters/ai-gke/nodePools/gpu-spot.
+2025-12-17 19:10:01,764 ERROR    root            (gcloud.container.node-pools.create) ResponseError: code=409, message=Already exists: projects/nth-baton-205216/zones/us-central1-a/clusters/ai-gke/nodePools/gpu-spot.

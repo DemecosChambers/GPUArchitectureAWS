@@ -1,0 +1,9 @@
+2025-12-16 19:08:13,669 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-12-16 19:08:14,256 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-12-16 19:08:14,258 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "compute/region", VALUE: "us-central1"]
+2025-12-16 19:08:15,867 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-12-16 19:08:16,316 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/nth-baton-205216/regions/us-central1?alt=json HTTP/11" 200 None
+2025-12-16 19:08:16,324 INFO     ___FILE_ONLY___ Updated property [compute/region].
+
+2025-12-16 19:08:16,365 DEBUG    root            Chosen display Format:default
+2025-12-16 19:08:16,378 INFO     root            Display format: "default"

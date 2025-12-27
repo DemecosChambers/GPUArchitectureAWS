@@ -1,0 +1,64 @@
+2025-12-17 19:05:06,993 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'node_pools']
+2025-12-17 19:05:07,271 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'node-pools', 'create']
+2025-12-17 19:05:09,527 DEBUG    root            Running [gcloud.container.node-pools.create] with arguments: [--accelerator: "OrderedDict({'type': 'nvidia-tesla-t4', 'count': 1})", --cluster: "ai-gke", --enable-autoscaling: "True", --machine-type: "n1-standard-4", --max-nodes: "2", --min-nodes: "0", --node-labels: "OrderedDict({'gpu': 'true'})", --num-nodes: "0", --spot: "True", --zone: "us-central1-a", NAME: "gpu-spot"]
+2025-12-17 19:05:09,529 INFO     ___FILE_ONLY___ Note: Machines with GPUs have certain limitations which may affect your workflow. Learn more at https://cloud.google.com/kubernetes-engine/docs/how-to/gpus
+
+2025-12-17 19:05:09,529 INFO     ___FILE_ONLY___ Note: Starting in GKE 1.30.1-gke.115600, if you don't specify a driver version, GKE installs the default GPU driver for your node's GKE version.
+
+2025-12-17 19:05:09,554 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): container.googleapis.com:443
+2025-12-17 19:05:10,717 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "POST /v1/projects/nth-baton-205216/locations/us-central1-a/clusters/ai-gke/nodePools?alt=json HTTP/11" 200 None
+2025-12-17 19:05:10,719 INFO     ___FILE_ONLY___ Creating node pool gpu-spot...
+2025-12-17 19:05:10,941 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd?alt=json HTTP/11" 200 None
+2025-12-17 19:05:16,036 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd?alt=json HTTP/11" 200 None
+2025-12-17 19:05:21,146 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd?alt=json HTTP/11" 200 None
+2025-12-17 19:05:26,250 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd?alt=json HTTP/11" 200 None
+2025-12-17 19:05:31,572 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd?alt=json HTTP/11" 200 None
+2025-12-17 19:05:36,666 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/operations/operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd?alt=json HTTP/11" 200 None
+2025-12-17 19:05:36,668 INFO     root            Operation <Operation
+ clusterConditions: []
+ endTime: '2025-12-18T00:05:35.991797106Z'
+ name: 'operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd'
+ nodepoolConditions: []
+ operationType: OperationTypeValueValuesEnum(CREATE_NODE_POOL, 7)
+ selfLink: 'https://container.googleapis.com/v1/projects/617449521683/zones/us-central1-a/operations/operation-1766016310705-04b5f5cf-f5e5-4e18-9d26-d48eade1f6dd'
+ startTime: '2025-12-18T00:05:10.705760968Z'
+ status: StatusValueValuesEnum(DONE, 3)
+ targetLink: 'https://container.googleapis.com/v1/projects/617449521683/zones/us-central1-a/clusters/ai-gke/nodePools/gpu-spot'
+ zone: 'us-central1-a'> finished after 25.9 seconds
+2025-12-17 19:05:36,871 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/clusters/ai-gke/nodePools/gpu-spot?alt=json HTTP/11" 200 None
+2025-12-17 19:05:36,876 INFO     ___FILE_ONLY___ Created [https://container.googleapis.com/v1/projects/nth-baton-205216/zones/us-central1-a/clusters/ai-gke/nodePools/gpu-spot].
+
+2025-12-17 19:05:36,876 DEBUG    root            Chosen display Format:
+     table(
+        name,
+        config.machineType,
+        config.diskSizeGb,
+        version:label=NODE_VERSION
+     )
+
+2025-12-17 19:05:36,877 INFO     root            Display format: "
+     table(
+        name,
+        config.machineType,
+        config.diskSizeGb,
+        version:label=NODE_VERSION
+     )
+"
+2025-12-17 19:05:38,033 INFO     ___FILE_ONLY___ NAME
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___       
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ MACHINE_TYPE
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___    
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ DISK_SIZE_GB
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___   
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ NODE_VERSION
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ 
+
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ gpu-spot
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___   
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ n1-standard-4
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___   
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ 100
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___            
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ 1.33.5-gke.1308000
+2025-12-17 19:05:38,034 INFO     ___FILE_ONLY___ 
+

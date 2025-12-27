@@ -1,0 +1,1874 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-12-21T05:03:06-05:00"
+    creationTimestamp: "2025-12-21T10:03:05Z"
+    generateName: karpenter-5674f97f4d-
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 5674f97f4d
+    name: karpenter-5674f97f4d-hqccq
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: karpenter-5674f97f4d
+      uid: 0c8c68ef-7111-469e-ac95-b7c094355277
+    resourceVersion: "1269762"
+    uid: c1c39dde-ba7f-4e77-917f-c3a3b52b1999
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: karpenter.sh/provisioner-name
+              operator: DoesNotExist
+    containers:
+    - env:
+      - name: KARPENTER_SERVICE
+        value: karpenter
+      - name: SYSTEM_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: MEMORY_LIMIT
+        valueFrom:
+          resourceFieldRef:
+            containerName: controller
+            divisor: "0"
+            resource: limits.memory
+      - name: CLUSTER_NAME
+        value: ai-eks
+      - name: CLUSTER_ENDPOINT
+        value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
+      - name: AWS_DEFAULT_REGION
+        value: us-east-1
+      - name: AWS_REGION
+        value: us-east-1
+      - name: AWS_ROLE_ARN
+        value: arn:aws:iam::344322112774:role/eksctl-ai-eks-addon-iamserviceaccount-karpent-Role1-VZ8WtR4PdoTq
+      - name: AWS_WEB_IDENTITY_TOKEN_FILE
+        value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+      image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /healthz
+          port: http
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 30
+      name: controller
+      ports:
+      - containerPort: 8080
+        name: http-metrics
+        protocol: TCP
+      - containerPort: 8081
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /readyz
+          port: http
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 30
+      resources:
+        limits:
+          cpu: "1"
+          memory: 1Gi
+        requests:
+          cpu: "1"
+          memory: 1Gi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-p4nbf
+        readOnly: true
+      - mountPath: /var/run/secrets/eks.amazonaws.com/serviceaccount
+        name: aws-iam-token
+        readOnly: true
+    - args:
+      - -port=8443
+      env:
+      - name: KUBERNETES_MIN_VERSION
+        value: 1.19.0-0
+      - name: KARPENTER_SERVICE
+        value: karpenter
+      - name: SYSTEM_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: MEMORY_LIMIT
+        valueFrom:
+          resourceFieldRef:
+            containerName: webhook
+            divisor: "0"
+            resource: limits.memory
+      - name: CLUSTER_NAME
+        value: ai-eks
+      - name: CLUSTER_ENDPOINT
+        value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
+      - name: AWS_DEFAULT_REGION
+        value: us-east-1
+      - name: AWS_REGION
+        value: us-east-1
+      - name: AWS_ROLE_ARN
+        value: arn:aws:iam::344322112774:role/eksctl-ai-eks-addon-iamserviceaccount-karpent-Role1-VZ8WtR4PdoTq
+      - name: AWS_WEB_IDENTITY_TOKEN_FILE
+        value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+      image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: https-webhook
+          scheme: HTTPS
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: webhook
+      ports:
+      - containerPort: 8443
+        name: https-webhook
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: https-webhook
+          scheme: HTTPS
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 200m
+          memory: 100Mi
+        requests:
+          cpu: 200m
+          memory: 100Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-p4nbf
+        readOnly: true
+      - mountPath: /var/run/secrets/eks.amazonaws.com/serviceaccount
+        name: aws-iam-token
+        readOnly: true
+    dnsPolicy: Default
+    enableServiceLinks: true
+    nodeName: ip-192-168-47-11.ec2.internal
+    nodeSelector:
+      kubernetes.io/os: linux
+    preemptionPolicy: PreemptLowerPriority
+    priority: 2000000000
+    priorityClassName: system-cluster-critical
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000
+    serviceAccount: karpenter
+    serviceAccountName: karpenter
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - key: CriticalAddonsOnly
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    topologySpreadConstraints:
+    - labelSelector:
+        matchLabels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+      maxSkew: 1
+      topologyKey: topology.kubernetes.io/zone
+      whenUnsatisfiable: ScheduleAnyway
+    volumes:
+    - name: aws-iam-token
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            audience: sts.amazonaws.com
+            expirationSeconds: 86400
+            path: token
+    - name: kube-api-access-p4nbf
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-12-21T10:03:37Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-12-21T10:03:35Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-12-21T10:03:37Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-12-21T10:03:37Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-12-21T10:03:35Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://96c7d76edf49f15ffaf8379a12be0b99ba49ff1d7fa5eec3cc3b5ea2ed8d8caf
+      image: sha256:481e3c3a0f535b941250be5ded7e967c47009f1953e5e261574fc2aa3f916fea
+      imageID: public.ecr.aws/karpenter/controller@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+      lastState: {}
+      name: controller
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-12-21T10:03:36Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-p4nbf
+        readOnly: true
+        recursiveReadOnly: Disabled
+      - mountPath: /var/run/secrets/eks.amazonaws.com/serviceaccount
+        name: aws-iam-token
+        readOnly: true
+        recursiveReadOnly: Disabled
+    - containerID: containerd://a688b1fc6ac50d7632944564f0f9064b6fd42d887edace53bc398c8c868d3268
+      image: sha256:eac3b97786f4296bc7b604624e3d6d14ea718fee63b00b3cd5b5b21f3d394969
+      imageID: public.ecr.aws/karpenter/webhook@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+      lastState: {}
+      name: webhook
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-12-21T10:03:36Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-p4nbf
+        readOnly: true
+        recursiveReadOnly: Disabled
+      - mountPath: /var/run/secrets/eks.amazonaws.com/serviceaccount
+        name: aws-iam-token
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.47.11
+    hostIPs:
+    - ip: 192.168.47.11
+    phase: Running
+    podIP: 192.168.36.236
+    podIPs:
+    - ip: 192.168.36.236
+    qosClass: Guaranteed
+    startTime: "2025-12-21T10:03:35Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-19T21:19:45Z"
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: karpenter
+      app.kubernetes.io/version: 0.16.3
+      helm.sh/chart: karpenter-0.16.3
+    name: karpenter
+    namespace: karpenter
+    resourceVersion: "627629"
+    uid: ca2412c9-f032-408e-ab8b-eff2c1714e41
+  spec:
+    clusterIP: 10.100.119.49
+    clusterIPs:
+    - 10.100.119.49
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-metrics
+      port: 8080
+      protocol: TCP
+      targetPort: http-metrics
+    - name: https-webhook
+      port: 443
+      protocol: TCP
+      targetPort: https-webhook
+    selector:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "7"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-19T21:19:45Z"
+    generation: 10
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: karpenter
+      app.kubernetes.io/version: 0.16.3
+      helm.sh/chart: karpenter-0.16.3
+    name: karpenter
+    namespace: karpenter
+    resourceVersion: "1269767"
+    uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 1
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-12-21T05:03:06-05:00"
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-12-19T21:24:57Z"
+      lastUpdateTime: "2025-12-19T21:24:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2025-12-19T21:19:45Z"
+      lastUpdateTime: "2025-12-21T10:03:37Z"
+      message: ReplicaSet "karpenter-5674f97f4d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 10
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "7"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-21T10:03:05Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 5674f97f4d
+    name: karpenter-5674f97f4d
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: karpenter
+      uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+    resourceVersion: "1269765"
+    uid: 0c8c68ef-7111-469e-ac95-b7c094355277
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+        pod-template-hash: 5674f97f4d
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-12-21T05:03:06-05:00"
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+          pod-template-hash: 5674f97f4d
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "6"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-21T09:04:36Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 5fbb587c64
+    name: karpenter-5fbb587c64
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: karpenter
+      uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+    resourceVersion: "1269594"
+    uid: 4e1ab9c0-e944-4888-861e-bfa08405e561
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+        pod-template-hash: 5fbb587c64
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-12-21T04:04:37-05:00"
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+          pod-template-hash: 5fbb587c64
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    observedGeneration: 2
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "2"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-19T21:26:28Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 6cdb5997f6
+    name: karpenter-6cdb5997f6
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: karpenter
+      uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+    resourceVersion: "629563"
+    uid: 7989f965-e1bc-4d14-a7f9-c7df8f42c798
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+        pod-template-hash: 6cdb5997f6
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+          pod-template-hash: 6cdb5997f6
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    observedGeneration: 2
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "4"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-21T08:40:33Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 6fd4c74d8
+    name: karpenter-6fd4c74d8
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: karpenter
+      uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+    resourceVersion: "1248730"
+    uid: d7875647-11bf-47b6-8709-1d45aa8a1669
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+        pod-template-hash: 6fd4c74d8
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-12-21T03:40:34-05:00"
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+          pod-template-hash: 6fd4c74d8
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    observedGeneration: 2
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "5"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-21T08:54:52Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 756bddb87
+    name: karpenter-756bddb87
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: karpenter
+      uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+    resourceVersion: "1251624"
+    uid: fd270694-9014-4037-9108-ddade0b249a4
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+        pod-template-hash: 756bddb87
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-12-21T03:54:52-05:00"
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+          pod-template-hash: 756bddb87
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    observedGeneration: 2
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-19T21:19:45Z"
+    generation: 3
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 75b9474f68
+    name: karpenter-75b9474f68
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: karpenter
+      uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+    resourceVersion: "629513"
+    uid: 7ab0c432-4188-4e95-83f4-fc6e5184ae16
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+        pod-template-hash: 75b9474f68
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+          pod-template-hash: 75b9474f68
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "3"
+      meta.helm.sh/release-name: karpenter
+      meta.helm.sh/release-namespace: karpenter
+    creationTimestamp: "2025-12-19T21:26:36Z"
+    generation: 4
+    labels:
+      app.kubernetes.io/instance: karpenter
+      app.kubernetes.io/name: karpenter
+      pod-template-hash: 79b97699bd
+    name: karpenter-79b97699bd
+    namespace: karpenter
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: karpenter
+      uid: 7cf623db-b0d4-4a81-8275-e7188577dcc4
+    resourceVersion: "1244518"
+    uid: 928153b4-e456-42f2-aea0-6e40194d81e5
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: karpenter
+        app.kubernetes.io/name: karpenter
+        pod-template-hash: 79b97699bd
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-12-19T16:26:35-05:00"
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: karpenter
+          app.kubernetes.io/name: karpenter
+          pod-template-hash: 79b97699bd
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: karpenter.sh/provisioner-name
+                  operator: DoesNotExist
+        containers:
+        - env:
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: controller
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/controller:v0.16.3@sha256:68db4f092cf9cc83f5ef9e2fbc5407c2cb682e81f64dfaa700a7602ede38b1cf
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: controller
+          ports:
+          - containerPort: 8080
+            name: http-metrics
+            protocol: TCP
+          - containerPort: 8081
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - -port=8443
+          env:
+          - name: KUBERNETES_MIN_VERSION
+            value: 1.19.0-0
+          - name: KARPENTER_SERVICE
+            value: karpenter
+          - name: SYSTEM_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MEMORY_LIMIT
+            valueFrom:
+              resourceFieldRef:
+                containerName: webhook
+                divisor: "0"
+                resource: limits.memory
+          - name: CLUSTER_NAME
+            value: ai-eks
+          - name: CLUSTER_ENDPOINT
+            value: https://9EC4C5B411B536C8B31FB0A976D93FA8.gr7.us-east-1.eks.amazonaws.com
+          image: public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: webhook
+          ports:
+          - containerPort: 8443
+            name: https-webhook
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: https-webhook
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 100Mi
+            requests:
+              cpu: 200m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: Default
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 1000
+        serviceAccount: karpenter
+        serviceAccountName: karpenter
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        topologySpreadConstraints:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: karpenter
+              app.kubernetes.io/name: karpenter
+          maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+  status:
+    observedGeneration: 4
+    replicas: 0
+kind: List
+metadata:
+  resourceVersion: ""

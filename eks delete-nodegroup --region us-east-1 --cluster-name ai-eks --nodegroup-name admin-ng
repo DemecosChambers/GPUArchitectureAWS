@@ -1,0 +1,61 @@
+{
+    "nodegroup": {
+        "nodegroupName": "admin-ng",
+        "nodegroupArn": "arn:aws:eks:us-east-1:344322112774:nodegroup/ai-eks/admin-ng/5ecd977e-c6c3-96b4-237f-593791a71adf",
+        "clusterName": "ai-eks",
+        "version": "1.32",
+        "releaseVersion": "1.32.9-20251209",
+        "createdAt": "2025-12-17T20:05:29.110000-05:00",
+        "modifiedAt": "2025-12-21T05:46:16.945000-05:00",
+        "status": "DELETING",
+        "capacityType": "ON_DEMAND",
+        "scalingConfig": {
+            "minSize": 0,
+            "maxSize": 1,
+            "desiredSize": 0
+        },
+        "instanceTypes": [
+            "t3.large"
+        ],
+        "subnets": [
+            "subnet-095cff8b1ef63a3c6",
+            "subnet-0e81fde53977b8ee3"
+        ],
+        "amiType": "AL2023_x86_64_STANDARD",
+        "nodeRole": "arn:aws:iam::344322112774:role/eksctl-ai-eks-nodegroup-admin-ng-NodeInstanceRole-xHKMjyv8yEuL",
+        "labels": {
+            "alpha.eksctl.io/cluster-name": "ai-eks",
+            "alpha.eksctl.io/nodegroup-name": "admin-ng",
+            "role": "admin"
+        },
+        "resources": {
+            "autoScalingGroups": [
+                {
+                    "name": "eks-admin-ng-5ecd977e-c6c3-96b4-237f-593791a71adf"
+                }
+            ]
+        },
+        "health": {
+            "issues": []
+        },
+        "updateConfig": {
+            "maxUnavailable": 1
+        },
+        "launchTemplate": {
+            "name": "eksctl-ai-eks-nodegroup-admin-ng",
+            "version": "1",
+            "id": "lt-0d829429c5036c0aa"
+        },
+        "tags": {
+            "aws:cloudformation:stack-name": "eksctl-ai-eks-nodegroup-admin-ng",
+            "alpha.eksctl.io/cluster-name": "ai-eks",
+            "alpha.eksctl.io/nodegroup-name": "admin-ng",
+            "karpenter.sh/discovery": "ai-eks",
+            "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:344322112774:stack/eksctl-ai-eks-nodegroup-admin-ng/973edd30-dbad-11f0-8214-0e0dd1b8d033",
+            "eksctl.cluster.k8s.io/v1alpha1/cluster-name": "ai-eks",
+            "aws:cloudformation:logical-id": "ManagedNodeGroup",
+            "alpha.eksctl.io/nodegroup-type": "managed",
+            "alpha.eksctl.io/eksctl-version": "0.220.0"
+        }
+    }
+}

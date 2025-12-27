@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                                                    DescribeStackEvents                                                                    |
++----------------------------------+------------------------------+---------------------+------------------------------------+------------------------------+
+|             LogicalId            |           Reason             |       Status        |               Time                 |            Type              |
++----------------------------------+------------------------------+---------------------+------------------------------------+------------------------------+
+|  [1m[34meksctl-ai-eks-nodegroup-admin-ng[0m|  [1m[34mNone[0m                        |  [1m[34mCREATE_COMPLETE[0m    |  [1m[34m2025-12-18T01:07:32.484000+00:00[0m  |  [1m[34mAWS::CloudFormation::Stack[0m  |
+|  [1m[34mManagedNodeGroup[0m                |  [1m[34mNone[0m                        |  [1m[34mCREATE_COMPLETE[0m    |  [1m[34m2025-12-18T01:07:31.858000+00:00[0m  |  [1m[34mAWS::EKS::Nodegroup[0m         |
+|  [1m[34mManagedNodeGroup[0m                |  [1m[34mResource creation Initiated[0m |  [1m[34mCREATE_IN_PROGRESS[0m |  [1m[34m2025-12-18T01:05:29.599000+00:00[0m  |  [1m[34mAWS::EKS::Nodegroup[0m         |
+|  [1m[34mManagedNodeGroup[0m                |  [1m[34mNone[0m                        |  [1m[34mCREATE_IN_PROGRESS[0m |  [1m[34m2025-12-18T01:05:26.712000+00:00[0m  |  [1m[34mAWS::EKS::Nodegroup[0m         |
+|  [1m[34mNodeInstanceRole[0m                |  [1m[34mNone[0m                        |  [1m[34mCREATE_COMPLETE[0m    |  [1m[34m2025-12-18T01:05:25.940000+00:00[0m  |  [1m[34mAWS::IAM::Role[0m              |
+|  [1m[34mLaunchTemplate[0m                  |  [1m[34mNone[0m                        |  [1m[34mCREATE_COMPLETE[0m    |  [1m[34m2025-12-18T01:05:10.598000+00:00[0m  |  [1m[34mAWS::EC2::LaunchTemplate[0m    |
+|  [1m[34mLaunchTemplate[0m                  |  [1m[34mResource creation Initiated[0m |  [1m[34mCREATE_IN_PROGRESS[0m |  [1m[34m2025-12-18T01:05:10.151000+00:00[0m  |  [1m[34mAWS::EC2::LaunchTemplate[0m    |
+|  [1m[34mNodeInstanceRole[0m                |  [1m[34mResource creation Initiated[0m |  [1m[34mCREATE_IN_PROGRESS[0m |  [1m[34m2025-12-18T01:05:09.780000+00:00[0m  |  [1m[34mAWS::IAM::Role[0m              |
+|  [1m[34mLaunchTemplate[0m                  |  [1m[34mNone[0m                        |  [1m[34mCREATE_IN_PROGRESS[0m |  [1m[34m2025-12-18T01:05:08.657000+00:00[0m  |  [1m[34mAWS::EC2::LaunchTemplate[0m    |
+|  [1m[34mNodeInstanceRole[0m                |  [1m[34mNone[0m                        |  [1m[34mCREATE_IN_PROGRESS[0m |  [1m[34m2025-12-18T01:05:08.642000+00:00[0m  |  [1m[34mAWS::IAM::Role[0m              |
+|  [1m[34meksctl-ai-eks-nodegroup-admin-ng[0m|  [1m[34mUser Initiated[0m              |  [1m[34mCREATE_IN_PROGRESS[0m |  [1m[34m2025-12-18T01:05:06.236000+00:00[0m  |  [1m[34mAWS::CloudFormation::Stack[0m  |
++----------------------------------+------------------------------+---------------------+------------------------------------+------------------------------+

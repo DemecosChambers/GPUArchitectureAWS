@@ -1,0 +1,46 @@
+apiVersion: v1
+items:
+- apiVersion: karpenter.k8s.aws/v1alpha1
+  kind: AWSNodeTemplate
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"karpenter.k8s.aws/v1alpha1","kind":"AWSNodeTemplate","metadata":{"annotations":{},"name":"cpu-default"},"spec":{"amiFamily":"AL2","instanceProfile":"KarpenterNodeRole-ai-eks","securityGroupSelector":{"karpenter.sh/discovery":"ai-eks"},"subnetSelector":{"karpenter.sh/discovery":"ai-eks"}}}
+    creationTimestamp: "2025-12-19T21:30:59Z"
+    generation: 1
+    name: cpu-default
+    resourceVersion: "630878"
+    uid: b2df1744-1c1c-4c7d-909d-e99033e81d79
+  spec:
+    amiFamily: AL2
+    instanceProfile: KarpenterNodeRole-ai-eks
+    securityGroupSelector:
+      karpenter.sh/discovery: ai-eks
+    subnetSelector:
+      karpenter.sh/discovery: ai-eks
+- apiVersion: karpenter.k8s.aws/v1alpha1
+  kind: AWSNodeTemplate
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"karpenter.k8s.aws/v1alpha1","kind":"AWSNodeTemplate","metadata":{"annotations":{},"name":"gpu-default"},"spec":{"amiFamily":"AL2","amiSelector":{"aws-ids":"ami-016835d5e961b0712"},"instanceProfile":"KarpenterNodeRole-ai-eks","securityGroupSelector":{"karpenter.sh/discovery":"ai-eks"},"subnetSelector":{"karpenter.sh/discovery":"ai-eks"},"tags":{"karpenter.sh/discovery":"ai-eks","workload":"gpu"}}}
+    creationTimestamp: "2025-12-21T09:04:27Z"
+    generation: 1
+    name: gpu-default
+    resourceVersion: "1251519"
+    uid: de104d04-109b-4edb-a3d5-0abda2a46d0e
+  spec:
+    amiFamily: AL2
+    amiSelector:
+      aws-ids: ami-016835d5e961b0712
+    instanceProfile: KarpenterNodeRole-ai-eks
+    securityGroupSelector:
+      karpenter.sh/discovery: ai-eks
+    subnetSelector:
+      karpenter.sh/discovery: ai-eks
+    tags:
+      karpenter.sh/discovery: ai-eks
+      workload: gpu
+kind: List
+metadata:
+  resourceVersion: ""

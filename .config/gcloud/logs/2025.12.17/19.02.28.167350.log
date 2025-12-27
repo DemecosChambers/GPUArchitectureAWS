@@ -1,0 +1,12 @@
+2025-12-17 19:02:28,436 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters']
+2025-12-17 19:02:28,523 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters', 'get_credentials']
+2025-12-17 19:02:29,260 DEBUG    root            Running [gcloud.container.clusters.get-credentials] with arguments: [--zone: "us-central1-a", NAME: "ai-gke"]
+2025-12-17 19:02:29,437 INFO     ___FILE_ONLY___ Fetching cluster endpoint and auth data.
+
+2025-12-17 19:02:29,443 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): container.googleapis.com:443
+2025-12-17 19:02:29,799 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/us-central1-a/clusters/ai-gke?alt=json HTTP/11" 200 None
+2025-12-17 19:02:29,827 DEBUG    root            Saved kubeconfig to /home/dchambers/.kube/config
+2025-12-17 19:02:29,827 INFO     ___FILE_ONLY___ kubeconfig entry generated for ai-gke.
+
+2025-12-17 19:02:29,827 DEBUG    root            Chosen display Format:default
+2025-12-17 19:02:29,837 INFO     root            Display format: "default"

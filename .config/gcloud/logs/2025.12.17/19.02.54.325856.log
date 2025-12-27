@@ -1,0 +1,31 @@
+2025-12-17 19:02:54,344 DEBUG    root            Loaded Command Group: ['gcloud', 'components']
+2025-12-17 19:02:54,483 DEBUG    root            Loaded Command Group: ['gcloud', 'components', 'update']
+2025-12-17 19:02:54,484 DEBUG    root            Running [gcloud.components.update] with arguments: []
+2025-12-17 19:03:14,333 INFO     ___FILE_ONLY___ Beginning update. This process may take several minutes.
+
+2025-12-17 19:03:14,611 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-12-17 19:03:15,209 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/11" 200 24727
+2025-12-17 19:03:15,398 INFO     ___FILE_ONLY___ 
+
+2025-12-17 19:03:15,403 DEBUG    root            (gcloud.components.update) You cannot perform this action because you do not have permission to modify the Google Cloud SDK installation directory [/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk].
+
+Re-run the command with sudo: sudo /mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/bin/gcloud ...
+Traceback (most recent call last):
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/surface/components/update.py", line 119, in Run
+    update_manager.Update(args.component_ids, version=args.version)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/core/updater/update_manager.py", line 1022, in Update
+    config.EnsureSDKWriteAccess(self.__sdk_root)
+  File "/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/lib/googlecloudsdk/core/config.py", line 221, in EnsureSDKWriteAccess
+    raise exceptions.RequiresAdminRightsError(sdk_root)
+googlecloudsdk.core.exceptions.RequiresAdminRightsError: You cannot perform this action because you do not have permission to modify the Google Cloud SDK installation directory [/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk].
+
+Re-run the command with sudo: sudo /mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/bin/gcloud ...
+2025-12-17 19:03:15,665 ERROR    root            (gcloud.components.update) You cannot perform this action because you do not have permission to modify the Google Cloud SDK installation directory [/mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk].
+
+Re-run the command with sudo: sudo /mnt/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/bin/gcloud ...

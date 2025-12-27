@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-writer
+spec:
+  tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "admin"
+    effect: "NoSchedule"
+  containers:
+  - name: app
+    image: public.ecr.aws/docker/library/busybox:1.36
+    command: ["sh","-c","echo ok > /data/ok.txt && sleep 300"]
+    volumeMounts:
+    - name: data
+      mountPath: /data
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: ebs-gp3-test

@@ -1,0 +1,94 @@
+apiVersion: v1
+items:
+- apiVersion: karpenter.sh/v1alpha5
+  kind: Provisioner
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"karpenter.sh/v1alpha5","kind":"Provisioner","metadata":{"annotations":{},"name":"cpu-on-demand"},"spec":{"consolidation":{"enabled":true},"limits":{"resources":{"cpu":64}},"providerRef":{"name":"cpu-default"},"requirements":[{"key":"kubernetes.io/arch","operator":"In","values":["amd64"]},{"key":"karpenter.sh/capacity-type","operator":"In","values":["on-demand"]},{"key":"node.kubernetes.io/instance-type","operator":"In","values":["m6i.large","m6i.xlarge","c6i.large","c6i.xlarge","r6i.large"]}],"ttlSecondsUntilExpired":604800}}
+    creationTimestamp: "2025-12-19T21:30:59Z"
+    generation: 1
+    name: cpu-on-demand
+    resourceVersion: "633634"
+    uid: 6257a5e2-8977-4d1b-8b9f-f1c263cecd6d
+  spec:
+    consolidation:
+      enabled: true
+    limits:
+      resources:
+        cpu: "64"
+    providerRef:
+      name: cpu-default
+    requirements:
+    - key: kubernetes.io/arch
+      operator: In
+      values:
+      - amd64
+    - key: karpenter.sh/capacity-type
+      operator: In
+      values:
+      - on-demand
+    - key: node.kubernetes.io/instance-type
+      operator: In
+      values:
+      - m6i.large
+      - m6i.xlarge
+      - c6i.large
+      - c6i.xlarge
+      - r6i.large
+    ttlSecondsUntilExpired: 604800
+  status: {}
+- apiVersion: karpenter.sh/v1alpha5
+  kind: Provisioner
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"karpenter.sh/v1alpha5","kind":"Provisioner","metadata":{"annotations":{},"name":"gpu-on-demand"},"spec":{"consolidation":{"enabled":true},"labels":{"workload":"gpu"},"limits":{"resources":{"cpu":64}},"providerRef":{"name":"gpu-default"},"requirements":[{"key":"kubernetes.io/arch","operator":"In","values":["amd64"]},{"key":"karpenter.sh/capacity-type","operator":"In","values":["on-demand"]},{"key":"node.kubernetes.io/instance-type","operator":"In","values":["g5.xlarge","g5.2xlarge","g4dn.xlarge","g4dn.2xlarge"]}],"taints":[{"effect":"NoSchedule","key":"nvidia.com/gpu","value":"true"}],"ttlSecondsUntilExpired":604800}}
+    creationTimestamp: "2025-12-21T08:19:26Z"
+    generation: 2
+    name: gpu-on-demand
+    resourceVersion: "1265876"
+    uid: 19b85536-0879-4ba0-af35-e83ce4e7fcc2
+  spec:
+    consolidation:
+      enabled: true
+    labels:
+      workload: gpu
+    limits:
+      resources:
+        cpu: "64"
+    providerRef:
+      name: gpu-default
+    requirements:
+    - key: kubernetes.io/arch
+      operator: In
+      values:
+      - amd64
+    - key: karpenter.sh/capacity-type
+      operator: In
+      values:
+      - on-demand
+    - key: node.kubernetes.io/instance-type
+      operator: In
+      values:
+      - g4dn.xlarge
+      - g4dn.2xlarge
+      - g4dn.4xlarge
+      - g5.xlarge
+      - g5.2xlarge
+      - g5.4xlarge
+    taints:
+    - effect: NoSchedule
+      key: nvidia.com/gpu
+      value: "true"
+    ttlSecondsUntilExpired: 604800
+  status:
+    resources:
+      cpu: "4"
+      ephemeral-storage: 20959212Ki
+      memory: 16081300Ki
+      nvidia.com/gpu: "1"
+      pods: "29"
+kind: List
+metadata:
+  resourceVersion: ""

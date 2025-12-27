@@ -1,0 +1,74 @@
+2025-12-17 20:47:50,280 DEBUG    root            Loaded Command Group: ['gcloud', 'container']
+2025-12-17 20:47:50,289 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters']
+2025-12-17 20:47:50,294 DEBUG    root            Loaded Command Group: ['gcloud', 'container', 'clusters', 'list']
+2025-12-17 20:47:50,371 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-12-17 20:47:50,372 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-12-17 20:47:50,545 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2025-12-17 20:47:50,704 DEBUG    root            Running [gcloud.container.clusters.list] with arguments: []
+2025-12-17 20:47:50,705 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): container.googleapis.com:443
+2025-12-17 20:47:51,184 DEBUG    urllib3.connectionpool https://container.googleapis.com:443 "GET /v1/projects/nth-baton-205216/locations/-/clusters?alt=json HTTP/1.1" 200 None
+2025-12-17 20:47:51,200 DEBUG    root            Chosen display Format:
+    table(
+        name,
+        zone:label=LOCATION,
+        master_version():label=MASTER_VERSION,
+        endpoint:label=MASTER_IP,
+        nodePools[0].config.machineType,
+        currentNodeVersion:label=NODE_VERSION,
+        firstof(currentNodeCount,initialNodeCount):label=NUM_NODES,
+        status,
+        ipAllocationPolicy.stackType.yesno(no='IPV4'):label=STACK_TYPE
+    )
+
+2025-12-17 20:47:51,201 INFO     root            Display format: "
+    table(
+        name,
+        zone:label=LOCATION,
+        master_version():label=MASTER_VERSION,
+        endpoint:label=MASTER_IP,
+        nodePools[0].config.machineType,
+        currentNodeVersion:label=NODE_VERSION,
+        firstof(currentNodeCount,initialNodeCount):label=NUM_NODES,
+        status,
+        ipAllocationPolicy.stackType.yesno(no='IPV4'):label=STACK_TYPE
+    )
+"
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ NAME
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___     
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ LOCATION
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___        
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ MASTER_VERSION
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___       
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ MASTER_IP
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___    
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ MACHINE_TYPE
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___    
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ NODE_VERSION
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___         
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ NUM_NODES
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ STATUS
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___    
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ STACK_TYPE
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ 
+
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ ai-gke
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ us-central1-a
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,230 INFO     ___FILE_ONLY___ 1.33.5-gke.1308000
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___ 34.31.4.37
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___ e2-standard-2
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___ 1.33.5-gke.1308000
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___ 1
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___           
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___ RUNNING
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___   
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___ IPV4
+2025-12-17 20:47:51,231 INFO     ___FILE_ONLY___ 
+
+2025-12-17 20:47:51,231 DEBUG    root            SDK update checks are disabled.

@@ -1,0 +1,11 @@
+2025-12-17 19:26:15,958 DEBUG    root            Loaded Command Group: ['gcloud', 'compute']
+2025-12-17 19:26:15,959 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'regions']
+2025-12-17 19:26:15,960 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'regions', 'describe']
+2025-12-17 19:26:15,960 DEBUG    root            Running [gcloud.compute.regions.describe] with arguments: [--format: "value(quotas[metric=PREEMPTIBLE_NVIDIA_A100_GPUS].limit,quotas[metric=PREEMPTIBLE_NVIDIA_A100_GPUS].usage)", NAME: "us-central1"]
+2025-12-17 19:26:16,053 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-12-17 19:26:16,320 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/nth-baton-205216/regions/us-central1?alt=json HTTP/1.1" 200 None
+2025-12-17 19:26:16,330 DEBUG    root            Chosen display Format:default value(quotas[metric=PREEMPTIBLE_NVIDIA_A100_GPUS].limit,quotas[metric=PREEMPTIBLE_NVIDIA_A100_GPUS].usage)
+2025-12-17 19:26:16,331 INFO     root            Display format: "default value(quotas[metric=PREEMPTIBLE_NVIDIA_A100_GPUS].limit,quotas[metric=PREEMPTIBLE_NVIDIA_A100_GPUS].usage)"
+2025-12-17 19:26:16,344 INFO     ___FILE_ONLY___ 	
+
+2025-12-17 19:26:16,347 DEBUG    root            SDK update checks are disabled.

@@ -1,0 +1,35 @@
+apiVersion: karpenter.k8s.aws/v1alpha1
+kind: AWSNodeTemplate
+metadata:
+  name: cpu-default
+spec:
+  subnetSelector:
+    karpenter.sh/discovery: ai-eks
+  securityGroupSelector:
+    karpenter.sh/discovery: ai-eks
+  instanceProfile: KarpenterNodeRole-ai-eks
+  amiFamily: AL2
+---
+apiVersion: karpenter.sh/v1alpha5
+kind: Provisioner
+metadata:
+  name: cpu-on-demand
+spec:
+  providerRef:
+    name: cpu-default
+  requirements:
+    - key: kubernetes.io/arch
+      operator: In
+      values: ["amd64"]
+    - key: karpenter.sh/capacity-type
+      operator: In
+      values: ["on-demand"]
+    - key: node.kubernetes.io/instance-type
+      operator: In
+      values: ["m6i.large","m6i.xlarge","c6i.large","c6i.xlarge","r6i.large"]
+  limits:
+    resources:
+      cpu: 64
+  ttlSecondsUntilExpired: 604800
+  consolidation:
+    enabled: true

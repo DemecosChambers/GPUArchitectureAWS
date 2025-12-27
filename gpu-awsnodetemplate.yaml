@@ -1,0 +1,16 @@
+apiVersion: karpenter.k8s.aws/v1alpha1
+kind: AWSNodeTemplate
+metadata:
+  name: gpu-default
+spec:
+  amiFamily: AL2
+  amiSelector:
+    aws-ids: "ami-016835d5e961b0712"
+  subnetSelector:
+    karpenter.sh/discovery: ai-eks
+  securityGroupSelector:
+    karpenter.sh/discovery: ai-eks
+  instanceProfile: KarpenterNodeRole-ai-eks
+  tags:
+    karpenter.sh/discovery: ai-eks
+    workload: gpu

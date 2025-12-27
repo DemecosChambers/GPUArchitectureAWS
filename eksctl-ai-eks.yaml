@@ -1,0 +1,17 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: ai-eks
+  region: us-east-1
+  tags:
+    karpenter.sh/discovery: ai-eks
+
+managedNodeGroups:
+  - name: admin-ng
+    instanceType: t3.large
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 2
+    labels:
+      role: admin
